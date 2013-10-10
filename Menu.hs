@@ -1,19 +1,19 @@
 module Menu ( Menu (..)
             , Item (..)
-            , doMenu
+            , exec
             ) where
 
 import Menu.Types
 
-doMenu :: Menu -> IO ()
-doMenu menu = do
+exec :: Menu -> IO ()
+exec menu = do
   putStr $ show menu
   sel <- prompt
   if isSelection menu sel
     then doSelection menu sel
     else do
     putStrLn "Invalid selection."
-    doMenu menu
+    exec menu
 
 prompt :: IO Char
 prompt = do

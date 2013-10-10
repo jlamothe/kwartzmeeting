@@ -1,10 +1,10 @@
 module Meeting ( Meeting
-               , getMeeting
+               , get
                ) where
 
 import Meeting.Types
 
-getMeeting :: IO Meeting
-getMeeting = undefined
+get :: IO Meeting
+get = undefined
 
 -- jl

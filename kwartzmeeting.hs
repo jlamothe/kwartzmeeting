@@ -2,12 +2,14 @@ module Main where
 
 import System.IO
 
-import Meeting
-import Menu
+import qualified Meeting
+import Meeting (Meeting)
+import qualified Menu
+import Menu (Menu)
 
 main = do
   hSetBuffering stdout NoBuffering
-  getMeeting >>= doMenu . mainMenu
+  Meeting.get >>= Menu.exec . mainMenu
 
 mainMenu :: Meeting -> Menu
 mainMenu = undefined
