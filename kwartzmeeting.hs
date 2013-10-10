@@ -9,7 +9,10 @@ import Menu (Menu)
 
 main = do
   hSetBuffering stdout NoBuffering
-  Meeting.get >>= Menu.exec . mainMenu
+  tryMeeting <- Meeting.get
+  case tryMeeting of
+    Just meeting -> Menu.exec $ mainMenu meeting
+    Nothing      -> return ()
 
 mainMenu :: Meeting -> Menu
 mainMenu = undefined

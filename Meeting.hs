@@ -4,7 +4,7 @@ module Meeting ( Meeting
 
 import Meeting.Types
 
-get :: IO Meeting
+get :: IO (Maybe Meeting)
 get = undefined
 
 -- jl
