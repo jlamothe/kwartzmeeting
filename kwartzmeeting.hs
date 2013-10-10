@@ -1,9 +1,13 @@
 module Main where
 
+import System.IO
+
 import Meeting
 import Menu
 
-main = getMeeting >>= doMenu . mainMenu
+main = do
+  hSetBuffering stdout NoBuffering
+  getMeeting >>= doMenu . mainMenu
 
 mainMenu :: Meeting -> Menu
 mainMenu = undefined
