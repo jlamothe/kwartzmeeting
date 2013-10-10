@@ -4,6 +4,7 @@ module Menu ( Menu (..)
             ) where
 
 import Menu.Types
+import qualified Data.Map as Map
 
 exec :: Menu -> IO ()
 exec menu = do
@@ -21,9 +22,13 @@ prompt = do
   getLine >>= return . head
 
 doSelection :: Menu -> Char -> IO ()
-doSelection = undefined
+doSelection menu sel = do
+  case Map.lookup sel (items menu) of
+    Just item -> action item
+    Nothing   -> error "call to a non-existant menu item"
 
 isSelection :: Menu -> Char -> Bool
-isSelection = undefined
+isSelection menu sel =
+  Map.member sel $ items menu
 
 -- jl
