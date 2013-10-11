@@ -20,7 +20,7 @@ instance Show Menu where
     Map.foldrWithKey addItem (formatTitle menu) (items menu)
     where
       addItem k x r = r ++ [k] ++ ") " ++ show x ++ "\n"
-      formatTitle m = "*** " ++ title m ++ " ***\n"
+      formatTitle m = "\n*** " ++ title m ++ " ***\n"
 
 instance Show Item where
   show = show . itemDesc
