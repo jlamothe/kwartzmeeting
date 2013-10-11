@@ -1,4 +1,4 @@
-module Meeting ( Meeting
+module Meeting ( Meeting (..)
                , get
                ) where
 
